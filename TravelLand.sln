@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand", "TravelLand\TravelLand.csproj", "{2C384A30-D415-46C8-A7FA-5BB9A5D8635C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand.API", "TravelLand.API\TravelLand.API.csproj", "{0AAF6BCF-55A2-4804-BC00-251542CCAF0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand.Entities", "TravelLand.Entities\TravelLand.Entities.csproj", "{CC93526E-9C7B-4578-B1E3-5A079AB3B807}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand.Utils", "TravelLand.Utils\TravelLand.Utils.csproj", "{7D354F82-DB7B-41B4-B7C6-71EF2F615D71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C384A30-D415-46C8-A7FA-5BB9A5D8635C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C384A30-D415-46C8-A7FA-5BB9A5D8635C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C384A30-D415-46C8-A7FA-5BB9A5D8635C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C384A30-D415-46C8-A7FA-5BB9A5D8635C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AAF6BCF-55A2-4804-BC00-251542CCAF0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AAF6BCF-55A2-4804-BC00-251542CCAF0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AAF6BCF-55A2-4804-BC00-251542CCAF0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AAF6BCF-55A2-4804-BC00-251542CCAF0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC93526E-9C7B-4578-B1E3-5A079AB3B807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC93526E-9C7B-4578-B1E3-5A079AB3B807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC93526E-9C7B-4578-B1E3-5A079AB3B807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC93526E-9C7B-4578-B1E3-5A079AB3B807}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D354F82-DB7B-41B4-B7C6-71EF2F615D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D354F82-DB7B-41B4-B7C6-71EF2F615D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D354F82-DB7B-41B4-B7C6-71EF2F615D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D354F82-DB7B-41B4-B7C6-71EF2F615D71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

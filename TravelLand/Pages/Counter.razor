@@ -1,0 +1,14 @@
+﻿@page "/counter"
+@attribute [Authorize]
+<AuthorizeView >
+    <Authorized>
+        <span>You're authorized!</span>
+    </Authorized>
+    <NotAuthorized>
+        <span>You're not authorized, buddy.</span>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    
+}
