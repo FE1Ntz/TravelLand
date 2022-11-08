@@ -9,7 +9,6 @@ namespace TravelLand.API.Controllers;
     public class AuthController : ControllerBase
     {
         private static UserModel user = new UserModel();
-        private readonly IConfiguration _configuration;
         //private readonly IUserService _userService;
         
         /*[HttpPost]
@@ -39,15 +38,15 @@ namespace TravelLand.API.Controllers;
                 return BadRequest("User not found.");
             }
 
-            if (!VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
+            if (!PasswordHelper.VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
             {
                 return BadRequest("Wrong password.");
             }
 
-            string token = TokenHelper.CreateToken(user);
+            var token = TokenHelper.CreateToken(user);
 
-            var refreshToken = GenerateRefreshToken();
-            SetRefreshToken(refreshToken);
+            /*var refreshToken = GenerateRefreshToken();
+            SetRefreshToken(refreshToken);*/
 
             return Ok(token);
         }
