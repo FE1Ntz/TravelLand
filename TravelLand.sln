@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand.Entities", "Trav
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand.Utils", "TravelLand.Utils\TravelLand.Utils.csproj", "{7D354F82-DB7B-41B4-B7C6-71EF2F615D71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand.DataAccess", "TravelLand.DataAccess\TravelLand.DataAccess.csproj", "{326D28CE-3657-4C77-9C92-ECC16C4926AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand.Business", "TravelLand.Business\TravelLand.Business.csproj", "{613CAF33-A0B0-458C-9EA1-B50B45D35FF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{7D354F82-DB7B-41B4-B7C6-71EF2F615D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D354F82-DB7B-41B4-B7C6-71EF2F615D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D354F82-DB7B-41B4-B7C6-71EF2F615D71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{326D28CE-3657-4C77-9C92-ECC16C4926AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{326D28CE-3657-4C77-9C92-ECC16C4926AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{326D28CE-3657-4C77-9C92-ECC16C4926AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{326D28CE-3657-4C77-9C92-ECC16C4926AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{613CAF33-A0B0-458C-9EA1-B50B45D35FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{613CAF33-A0B0-458C-9EA1-B50B45D35FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{613CAF33-A0B0-458C-9EA1-B50B45D35FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{613CAF33-A0B0-458C-9EA1-B50B45D35FF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TravelLand.API.Authorization;
+using TravelLand.Business.User;
 using TravelLand.Entities.Models;
 using TravelLand.Utils.Auth;
 
@@ -8,29 +10,34 @@ namespace TravelLand.API.Controllers;
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private static UserModel user = new UserModel();
-        //private readonly IUserService _userService;
         
-        /*[HttpPost]
-        public async Task<ActionResult<string>> Login(UserLoginDto request)
+        private readonly IUserManager _userManager;
+
+        public AuthController(IUserManager userManager)
         {
-            var token = "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9ueSBTdGFyayIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Iklyb24gTWFuIiwiZXhwIjozMTY4NTQwMDAwfQ.IbVQa1lNYYOzwso69xYfsMOHnQfO3VLvVqV2SOXS7sTtyyZ8DEf5jmmwz2FGLJJvZnQKZuieHnmHkg7CGkDbvA";
-            return token;
-        }*/
+            _userManager = userManager;
+        }
         
         [HttpPost("Register")]
         public async Task<ActionResult<UserModel>> Register(UserLoginDto request)
         {
             PasswordHelper.CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
-            user.Username = request.Username;
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;
+            var userModel = new UserModel()
+            {
+                Username = request.Username,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+            };
 
-            return Ok(user);
+            await _userManager.Create(userModel);
+
+            return Ok(userModel);
         }
         
-        [HttpPost("Login")]
+        /*[HttpPost("Login")]
         public async Task<ActionResult<string>> Login(UserLoginDto request)
         {
             if (user.Username != request.Username)
@@ -43,12 +50,12 @@ namespace TravelLand.API.Controllers;
                 return BadRequest("Wrong password.");
             }
 
-            var token = TokenHelper.CreateToken(user);
+            var token = JwtTokenManager.CreateToken(user);
 
             /*var refreshToken = GenerateRefreshToken();
-            SetRefreshToken(refreshToken);*/
+            SetRefreshToken(refreshToken);#1#
 
             return Ok(token);
-        }
+        }*/
     }
 

@@ -7,10 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.5" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\TravelLand.Business\TravelLand.Business.csproj" />
       <ProjectReference Include="..\TravelLand.Entities\TravelLand.Entities.csproj" />
       <ProjectReference Include="..\TravelLand.Utils\TravelLand.Utils.csproj" />
     </ItemGroup>
