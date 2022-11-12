@@ -1,16 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand", "TravelLand\TravelLand.csproj", "{2C384A30-D415-46C8-A7FA-5BB9A5D8635C}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelLand", "TravelLand\TravelLand.csproj", "{2C384A30-D415-46C8-A7FA-5BB9A5D8635C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand.API", "TravelLand.API\TravelLand.API.csproj", "{0AAF6BCF-55A2-4804-BC00-251542CCAF0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelLand.API", "TravelLand.API\TravelLand.API.csproj", "{0AAF6BCF-55A2-4804-BC00-251542CCAF0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand.Entities", "TravelLand.Entities\TravelLand.Entities.csproj", "{CC93526E-9C7B-4578-B1E3-5A079AB3B807}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelLand.Entities", "TravelLand.Entities\TravelLand.Entities.csproj", "{CC93526E-9C7B-4578-B1E3-5A079AB3B807}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand.Utils", "TravelLand.Utils\TravelLand.Utils.csproj", "{7D354F82-DB7B-41B4-B7C6-71EF2F615D71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelLand.Utils", "TravelLand.Utils\TravelLand.Utils.csproj", "{7D354F82-DB7B-41B4-B7C6-71EF2F615D71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand.DataAccess", "TravelLand.DataAccess\TravelLand.DataAccess.csproj", "{326D28CE-3657-4C77-9C92-ECC16C4926AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelLand.DataAccess", "TravelLand.DataAccess\TravelLand.DataAccess.csproj", "{326D28CE-3657-4C77-9C92-ECC16C4926AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelLand.Business", "TravelLand.Business\TravelLand.Business.csproj", "{613CAF33-A0B0-458C-9EA1-B50B45D35FF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelLand.Business", "TravelLand.Business\TravelLand.Business.csproj", "{613CAF33-A0B0-458C-9EA1-B50B45D35FF5}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TravelLand.Database", "TravelLand.Database\TravelLand.Database.sqlproj", "{9267D800-8634-4F71-B7F8-8571D3355EB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,5 +47,17 @@ Global
 		{613CAF33-A0B0-458C-9EA1-B50B45D35FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{613CAF33-A0B0-458C-9EA1-B50B45D35FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{613CAF33-A0B0-458C-9EA1-B50B45D35FF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9267D800-8634-4F71-B7F8-8571D3355EB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9267D800-8634-4F71-B7F8-8571D3355EB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9267D800-8634-4F71-B7F8-8571D3355EB1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9267D800-8634-4F71-B7F8-8571D3355EB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9267D800-8634-4F71-B7F8-8571D3355EB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9267D800-8634-4F71-B7F8-8571D3355EB1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA242305-A39C-412F-B58F-92CFBEBE3D17}
 	EndGlobalSection
 EndGlobal

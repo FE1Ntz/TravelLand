@@ -6,7 +6,7 @@
     <Name>TravelLand.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{638ecae4-9eb0-44cb-90c0-7b536639a7c4}</ProjectGuid>
+    <ProjectGuid>{9267d800-8634-4f71-b7f8-8571d3355eb1}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
