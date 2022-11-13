@@ -64,4 +64,9 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Users.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="StoredProcedures\sp_Users_Create.sql" />
+    <Content Include="StoredProcedures\sp_Users_GetAll.sql" />
+    <Content Include="StoredProcedures\sp_Users_GetByUsername.sql" />
+  </ItemGroup>
 </Project>

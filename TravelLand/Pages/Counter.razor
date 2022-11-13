@@ -1,6 +1,6 @@
 ﻿@page "/counter"
 @attribute [Authorize]
-<AuthorizeView >
+<AuthorizeView Roles="Admin">
     <Authorized>
         <span>You're authorized!</span>
     </Authorized>

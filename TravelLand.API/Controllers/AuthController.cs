@@ -3,31 +3,41 @@ using TravelLand.API.Authorization;
 using TravelLand.Business.User;
 using TravelLand.Entities.Models;
 using TravelLand.Utils.Auth;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TravelLand.API.Controllers;
 
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
         
         private readonly IUserManager _userManager;
+        private readonly JwtTokenManager _tokenManager;
 
-        public AuthController(IUserManager userManager)
+        public AuthController(IUserManager userManager, JwtTokenManager tokenManager)
         {
             _userManager = userManager;
+            _tokenManager = tokenManager;
         }
         
         [HttpPost("Register")]
-        public async Task<ActionResult<UserModel>> Register(UserLoginDto request)
+        public async Task<ActionResult<UserModel>> Register(UserRegisterDto request)
         {
+            var user = await _userManager.GetByUsername(request.Username);
+            
+            if (user != null)
+                return BadRequest("User is already exists");
+            
             PasswordHelper.CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
-            var userModel = new UserModel()
+            var userModel = new UserModel
             {
                 Username = request.Username,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
+                Role = "Client",
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
             };
@@ -37,10 +47,11 @@ namespace TravelLand.API.Controllers;
             return Ok(userModel);
         }
         
-        /*[HttpPost("Login")]
+        [HttpPost("Login")]
         public async Task<ActionResult<string>> Login(UserLoginDto request)
         {
-            if (user.Username != request.Username)
+            var user = await _userManager.GetByUsername(request.Username);
+            if (user == null)
             {
                 return BadRequest("User not found.");
             }
@@ -50,12 +61,12 @@ namespace TravelLand.API.Controllers;
                 return BadRequest("Wrong password.");
             }
 
-            var token = JwtTokenManager.CreateToken(user);
+            var token = await _tokenManager.CreateToken(user);
 
             /*var refreshToken = GenerateRefreshToken();
-            SetRefreshToken(refreshToken);#1#
+            SetRefreshToken(refreshToken);*/
 
             return Ok(token);
-        }*/
+        }
     }
 

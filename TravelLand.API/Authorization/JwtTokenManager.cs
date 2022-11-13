@@ -1,6 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
+using TravelLand.Business.User;
 using TravelLand.Entities.Models;
 
 namespace TravelLand.API.Authorization;
@@ -8,19 +9,37 @@ namespace TravelLand.API.Authorization;
 public class JwtTokenManager
 {
     private static IConfiguration _configuration;
+    private readonly IUserManager _userManager;
 
-    public JwtTokenManager(IConfiguration configuration)
+    public JwtTokenManager(IConfiguration configuration, IUserManager userManager)
     {
         _configuration = configuration;
+        _userManager = userManager;
     }
 
-    public static string CreateToken(UserModel user)
+    public async Task<string> CreateToken(UserModel model)
     {
-        var claims = new List<Claim>
+        var claims = new List<Claim>();
+        var user = await _userManager.GetByUsername(model.Username);
+        if (user == null)
+            return "";
+        switch (user.Role)
         {
-            new Claim(ClaimTypes.Name, user.Username),
-            new Claim(ClaimTypes.Role, "Admin")
-        };
+            case "Admin":
+                claims = new List<Claim>()
+                {
+                    new Claim(ClaimTypes.Name, model.Username),
+                    new Claim(ClaimTypes.Role, "Admin")
+                };
+                break;
+            case "Client":
+                claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, model.Username),
+                    new Claim(ClaimTypes.Role, "Client")
+                };
+                break;
+        }
 
         var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
             _configuration.GetSection("AppSettings:Token").Value));

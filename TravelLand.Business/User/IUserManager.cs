@@ -9,4 +9,5 @@ public interface IUserManager
     Task<bool> Update(UserModel model);
     Task<bool> Create(UserModel model);
     Task<bool> Delete(Guid id);
+    Task<UserModel> GetByUsername(string username);
 }

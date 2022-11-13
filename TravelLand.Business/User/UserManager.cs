@@ -38,5 +38,9 @@ public class UserManager : IUserManager
     {
         return _dataController.Delete(id);
     }
-        
+
+    public Task<UserModel> GetByUsername(string username)
+    {
+        return _dataController.GetByUsername(username);
+    }
 }

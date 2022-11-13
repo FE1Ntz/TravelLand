@@ -33,4 +33,9 @@ public class UserDataController : DataController
     {
         return PerformNonQuery("Delete", new { Id = id });
     }
+
+    public Task<UserModel> GetByUsername(string username)
+    {
+        return GetOneAsync<UserModel>("GetByUsername", new { Username = username });
+    }
 }
