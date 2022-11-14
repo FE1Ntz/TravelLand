@@ -18,10 +18,19 @@ public class AuthService : HttpServiceBase
         {
             if (obj == null)
                 return "";
-            var result = await _client.PostAsync(Url("Login"), 
+            var result = await _client.PostAsync(Url("login"), 
                 new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json"));
             if (!result.IsSuccessStatusCode || string.IsNullOrEmpty(result.Content.ToString()))
-                return null;
+                return "";
             return await result.Content.ReadAsStringAsync();
+        }
+        
+        public async Task<bool> Register(UserRegisterDto obj)
+        {
+            if (obj == null)
+                return false;
+            var result = await _client.PostAsync(Url("Register"), 
+                new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json"));
+            return result.IsSuccessStatusCode;
         } 
     }

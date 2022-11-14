@@ -18,23 +18,30 @@ public class CustomAuthStateProvider : AuthenticationStateProvider
 
     public override async Task<AuthenticationState> GetAuthenticationStateAsync()
     {
-        var token = await _localStorage.GetItemAsStringAsync("token");
-
-        var identity = new ClaimsIdentity();
-
-        if (!string.IsNullOrEmpty(token))
+        try
         {
-            identity = new ClaimsIdentity(ParseClaimsFromJwt(token), "jwt");
-            _http.DefaultRequestHeaders.Authorization =
-                new AuthenticationHeaderValue("Bearer", token.Replace("\"", ""));
+            var token = await _localStorage.GetItemAsStringAsync("token");
+
+            var identity = new ClaimsIdentity();
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                identity = new ClaimsIdentity(ParseClaimsFromJwt(token), "jwt");
+                _http.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", token.Replace("\"", ""));
+            }
+
+            var user = new ClaimsPrincipal(identity);
+            var state = new AuthenticationState(user);
+
+            NotifyAuthenticationStateChanged(Task.FromResult(state));
+
+            return state;
         }
-
-        var user = new ClaimsPrincipal(identity);
-        var state = new AuthenticationState(user);
-
-        NotifyAuthenticationStateChanged(Task.FromResult(state));
-
-        return state;
+        catch (Exception e)
+        {
+            return await Task.FromResult(new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity())));
+        }
     }
 
     public static IEnumerable<Claim> ParseClaimsFromJwt(string jwt)

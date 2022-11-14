@@ -1,40 +1,21 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">TravelLand</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+﻿@attribute [Authorize]
+
+
+<div class="nav shadow bg-main">
+    <div class="nav-container container">
+        <div class="brand-text">TravelLand</div>
+        <div class="links">
+            <a href="/" class="link">Головна</a>
+            <a href="" class="link">Пошук турів</a>
+            <a href="" class="link">Гарячі тури</a>
+            <AuthorizeView Roles="Client">
+                <Authorized>
+                    <a href="" class="link">Особистий кабінет</a>
+                </Authorized>
+                <NotAuthorized>
+                    <a href="Login" class="link">Регістрація/Вхід</a>
+                </NotAuthorized>
+            </AuthorizeView>
+        </div>
     </div>
 </div>
-
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-    </nav>
-</div>
-
-@code {
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-
-}

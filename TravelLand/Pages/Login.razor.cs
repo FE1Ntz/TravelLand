@@ -10,10 +10,11 @@ public partial class Login
     [Inject] private AuthenticationStateProvider _authStateProvider { get; set; }
     [Inject] private ILocalStorageService _localStorageService { get; set; }
     [Inject] private AuthService _authService { set; get; }
-    
-    private UserLoginDto _userLoginDto;
+    [Inject] private NavigationManager _navManager { get; set; }
+
+    private UserLoginDto _userLoginDto = new UserLoginDto();
     [Parameter]
-    public UserLoginDto UserLoginDto
+    public UserLoginDto UserLoginDto 
     {
         get => _userLoginDto;
         set
@@ -21,12 +22,11 @@ public partial class Login
             _userLoginDto = value;
             StateHasChanged();
         }
-    }
+    } 
     
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        StateHasChanged();
     }
 
     private async Task HandleLogin()
@@ -34,6 +34,15 @@ public partial class Login
         var result = await _authService.Login(UserLoginDto);
         await _localStorageService.SetItemAsync("token", result);
         await _authStateProvider.GetAuthenticationStateAsync();
-        StateHasChanged();
+    }
+    
+    private void Registration()
+    {
+        _navManager.NavigateTo("Registration");
+    }
+    
+    private void Back()
+    {
+        _navManager.NavigateTo("");
     }
 }

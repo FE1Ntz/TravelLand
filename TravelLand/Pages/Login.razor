@@ -1,9 +1,22 @@
 ﻿@page "/Login"
 
-<EditForm Model="UserLoginDto" OnSubmit="HandleLogin">
-    <label for="username">Name</label>
-    <InputText id="username" @bind-Value="UserLoginDto.Username"/>
-    <label for="password">Password</label>
-    <InputText id="password" @bind-Value="UserLoginDto.Password"/>
-    <button type="submit" class="btn btn-primary">Do it!</button>
-</EditForm>
+<div class="animate__animated animate__fadeInUp login-form-container">
+    <EditForm Model="UserLoginDto">
+        <div class="login-form">
+            <div class="login-field">
+                <div>Username</div>
+                <InputText class="login-input" type="text" @bind-Value="UserLoginDto.Username"/>
+            </div>
+            <div class="login-field">
+                <div>Password</div>
+                <InputText class="login-input" type="text" @bind-Value="UserLoginDto.Password"/>
+            </div>
+            <button class="login-button" @onclick="HandleLogin">Log in</button>
+        </div>
+    </EditForm>
+    <div class="login-container-footer">
+        <div class="login-back-button" @onclick="Back">Back</div>
+        <div class="login-registration-button" @onclick="Registration">Registration</div>
+    </div>
+</div>
+

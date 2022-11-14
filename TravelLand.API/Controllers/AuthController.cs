@@ -26,9 +26,13 @@ namespace TravelLand.API.Controllers;
         public async Task<ActionResult<UserModel>> Register(UserRegisterDto request)
         {
             var user = await _userManager.GetByUsername(request.Username);
-            
+
             if (user != null)
-                return BadRequest("User is already exists");
+            {
+                ModelState.AddModelError("", "User is already exists");
+                return BadRequest(ModelState);
+            }
+                
             
             PasswordHelper.CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
