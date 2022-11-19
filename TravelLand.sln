@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelLand", "TravelLand\TravelLand.csproj", "{2C384A30-D415-46C8-A7FA-5BB9A5D8635C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelLand.UI", "TravelLand.UI\TravelLand.UI.csproj", "{2C384A30-D415-46C8-A7FA-5BB9A5D8635C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelLand.API", "TravelLand.API\TravelLand.API.csproj", "{0AAF6BCF-55A2-4804-BC00-251542CCAF0A}"
 EndProject
