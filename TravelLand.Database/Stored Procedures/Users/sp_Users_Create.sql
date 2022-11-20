@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[sp_Users_Create]
+﻿CREATE PROCEDURE [dbo].[sp_Users_Create]
     @Id UNIQUEIDENTIFIER,
 	@Username NVARCHAR(MAX),
     @FirstName NVARCHAR(MAX),
