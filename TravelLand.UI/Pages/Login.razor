@@ -1,17 +1,21 @@
 ﻿@page "/Login"
+@using TravelLand.Entities.Enums
 
 <div class="animate__animated animate__fadeInUp login-form-container">
-    <EditForm Model="UserLoginDto">
+    <EditForm Model="UserLoginDto" OnValidSubmit="@HandleLogin">
+        <DataAnnotationsValidator />
         <div class="login-form">
             <div class="login-field">
                 <div>Username</div>
-                <InputText class="login-input" type="text" @bind-Value="UserLoginDto.Username"/>
+                <InputText @oninput="(args) => HandleInput(args, InputValueEnum.Username)" class="login-input" type="text" @bind-Value="UserLoginDto.Username"/> 
+                <ValidationMessage For="@(() => UserLoginDto.Username)" />@_usernameError
             </div>
             <div class="login-field">
                 <div>Password</div>
-                <InputText class="login-input" type="text" @bind-Value="UserLoginDto.Password"/>
+                <InputText @oninput="(args) => HandleInput(args, InputValueEnum.Password)" class="login-input" type="text" @bind-Value="UserLoginDto.Password"/>
+                <ValidationMessage For="@(() => UserLoginDto.Password)" />@_passwordError
             </div>
-            <button class="login-button" @onclick="HandleLogin">Log in</button>
+            <button class="login-button" type="submit">Log in</button>
         </div>
     </EditForm>
     <div class="login-container-footer">

@@ -5,6 +5,8 @@ using TravelLand.Entities.Models;
 using TravelLand.Utils.Auth;
 using System.Collections.Generic;
 using System.Linq;
+using TravelLand.Entities.Models.DtoModels;
+using TravelLand.Entities.Models.ErrorModels;
 
 namespace TravelLand.API.Controllers;
 
@@ -23,14 +25,18 @@ namespace TravelLand.API.Controllers;
         }
         
         [HttpPost("Register")]
-        public async Task<ActionResult<UserModel>> Register(UserRegisterDto request)
+        public async Task<ActionResult> Register(UserRegisterDto request)
         {
             var user = await _userManager.GetByUsername(request.Username);
 
             if (user != null)
             {
-                ModelState.AddModelError("", "User is already exists");
-                return BadRequest(ModelState);
+                return BadRequest(new AuthorizationResponceModel
+                {
+                    IsSuccess = false,
+                    StatusCode = 400,
+                    Errors = new Dictionary<string, string>{ {"Username", "Username already exists"} }
+                });
             }
                 
             
@@ -48,29 +54,53 @@ namespace TravelLand.API.Controllers;
 
             await _userManager.Create(userModel);
 
-            return Ok(userModel);
+            return Ok(new AuthorizationResponceModel               
+            {
+                IsSuccess = true,         
+                StatusCode = 200
+            });
         }
         
         [HttpPost("Login")]
-        public async Task<ActionResult<string>> Login(UserLoginDto request)
+        public async Task<ActionResult> Login(UserLoginDto request)
         {
             var user = await _userManager.GetByUsername(request.Username);
             if (user == null)
             {
-                return BadRequest("User not found.");
+                return BadRequest(new AuthorizationResponceModel()
+                {
+                    IsSuccess = false,
+                    StatusCode = 400,
+                    Errors = new Dictionary<string, string>
+                    {
+                        {"Username", "Username not found"},
+                        {"Password", ""}
+                    }
+                });
             }
 
             if (!PasswordHelper.VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
             {
-                return BadRequest("Wrong password.");
+                return BadRequest(new AuthorizationResponceModel()
+                {
+                    IsSuccess = false,
+                    StatusCode = 400,
+                    Errors = new Dictionary<string, string>
+                    {
+                        {"Username", ""},
+                        {"Password", "Wrong password"}
+                    }
+                });
             }
 
             var token = await _tokenManager.CreateToken(user);
 
-            /*var refreshToken = GenerateRefreshToken();
-            SetRefreshToken(refreshToken);*/
-
-            return Ok(token);
+            return Ok(new AuthorizationResponceModel()
+            {
+                IsSuccess = true,
+                StatusCode = 200,
+                Token = token
+            });
         }
     }
 

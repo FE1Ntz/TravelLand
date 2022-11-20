@@ -175,7 +175,6 @@ html, body {
 
 .login-form-container{
     width: 400px;
-    height: 260px;
     padding: 20px;
     margin-top: 300px;
     margin-right: auto;
@@ -219,7 +218,6 @@ html, body {
 
 .registration-form-container{
     width: 400px;
-    height: 435px;
     padding: 20px;
     margin-top: 230px;
     margin-right: auto;
