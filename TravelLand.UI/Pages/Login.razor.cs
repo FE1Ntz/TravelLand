@@ -46,8 +46,11 @@ public partial class Login
         else
         {
             await _localStorageService.SetItemAsync("token", result.Token);
-            await _authStateProvider.GetAuthenticationStateAsync();
-            Back();
+            var state = await _authStateProvider.GetAuthenticationStateAsync();
+            if (state.User.IsInRole("Admin"))
+                _navManager.NavigateTo("AdminPanel");
+            else
+                Back();
         }
     }
     

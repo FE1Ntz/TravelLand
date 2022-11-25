@@ -1,0 +1,36 @@
+﻿@page "/Account"
+@attribute [Authorize(Roles = "Client")]
+
+<div class="container" style="background-color: #212529; margin-top: 80px; height: 775px;  border-radius: 40px">
+    <div class="row" style="height: 100%">
+        <div style="display: flex; flex-direction: column; margin-top: 100px; align-items: center; width: 300px;">
+            <div style="height: 40px; margin-bottom:20px; display: flex; justify-content: center;">
+                <button style="width: 200px; height: 40px; border-radius: 10px;">Профіль</button>
+            </div>
+            <div style="height: 40px; margin-bottom:20px; display: flex; justify-content: center;">
+                <button style="width: 200px; height: 40px; border-radius: 10px;">Історія</button>
+            </div>
+            <div style="height: 40px; margin-bottom:20px; display: flex; justify-content: center;">
+                <button style="width: 200px; height: 40px; border-radius: 10px;">Заплановані поїздки</button>
+            </div>
+            <div style="height: 40px; margin-bottom:20px; display: flex; justify-content: center;">
+                <button @onclick="Back" style="width: 200px; height: 40px; border-radius: 10px;">Назад</button>
+            </div>
+        </div>
+        <div style="width: 100%;">
+            <div style="font-family: 'Fira Sans', serif; background-color: var(--main-color); height: 100%; border-radius: 40px; display: flex; align-items: center; justify-content: center; flex-direction: column">
+                <div style="margin-bottom: 20px; font-size: 30px;">
+                   Username: @_userModel.Username
+                </div>
+                <div style="margin-bottom: 20px; font-size: 30px;">
+                   First name: @_userModel.FirstName
+                </div>
+                <div style="margin-bottom: 20px; font-size: 30px;">
+                   Last name:  @_userModel.LastName
+                </div>
+                <button style="width: 200px; height: 40px; border-radius: 10px;"  @onclick="Logout">Log Out</button>
+            </div>
+        </div>
+    </div>
+</div>
+

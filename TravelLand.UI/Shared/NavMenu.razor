@@ -1,6 +1,5 @@
 ﻿@attribute [Authorize]
 
-
 <div class="nav shadow bg-main">
     <div class="nav-container container">
         <div class="brand-text">TravelLand.UI</div>
@@ -10,7 +9,7 @@
             <a href="" class="link">Гарячі тури</a>
             <AuthorizeView Roles="Client">
                 <Authorized>
-                    <a href="" class="link">Особистий кабінет</a>
+                    <a href="Account" class="link">Особистий кабінет</a>
                 </Authorized>
                 <NotAuthorized>
                     <a href="Login" class="link">Регістрація/Вхід</a>
