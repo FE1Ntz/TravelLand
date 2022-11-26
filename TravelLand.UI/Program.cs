@@ -1,5 +1,7 @@
 global using Microsoft.AspNetCore.Components.Authorization;
 using Blazored.LocalStorage;
+using Blazored.Modal;
+using Blazored.Toast;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using TravelLand;
@@ -12,6 +14,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddAuthorizationCore();
 builder.Services.AddBlazoredLocalStorage();
+builder.Services.AddBlazoredModal();
+builder.Services.AddBlazoredToast();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<UserService>();

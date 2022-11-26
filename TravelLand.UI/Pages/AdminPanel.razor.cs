@@ -1,5 +1,8 @@
 ﻿using Blazored.LocalStorage;
+using Blazored.Modal;
+using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
+using TravelLand.Components;
 using TravelLand.Entities.Models;
 using TravelLand.Services;
 
@@ -11,24 +14,26 @@ public partial class AdminPanel
     [Inject] private ILocalStorageService _localStorageService { get; set; }
     [Inject] private UserService _userService { get; set; }
     [Inject] private AuthService _authService { set; get; }
+    [CascadingParameter] private IModalService _modalService { get; set; }
     [Inject] private NavigationManager _navManager { get; set; }
-
-    private UserModel _userModel = new UserModel();
-
-    public UserModel UserModel
+    
+    private IEnumerable<UserModel> _users;
+    protected IEnumerable<UserModel> Users
     {
-        get => _userModel;
+        get => _users;
         set
         {
-            _userModel = value;
+            _users = value;
             StateHasChanged();
         }
-    } 
+    }
+
+    private UserModel _userModel = new UserModel();
+    
     
     protected override async Task OnInitializedAsync()
     {
-        var stateAsync =  await _authStateProvider.GetAuthenticationStateAsync();
-        UserModel = await _userService.GetByUsername(stateAsync.User.Identity.Name);
+        Users = await _userService.GetAll();
     }
 
     protected async Task Logout()
@@ -36,6 +41,18 @@ public partial class AdminPanel
         await _localStorageService.RemoveItemAsync("token");
         await _authStateProvider.GetAuthenticationStateAsync();
         Back();
+    }
+
+    private async Task Edit(Guid id)
+    {
+        var parameters = new ModalParameters().Add("User", Users.Single(u => u.Id == id));
+        _modalService.Show<EditUserComponent>("Edit client", parameters);
+    }
+    
+    private async Task Info(Guid id)
+    {
+        var parameters = new ModalParameters().Add("User", Users.Single(u => u.Id == id));
+        _modalService.Show<EditUserComponent>("Client full info", parameters);
     }
     
     private void Back()
