@@ -1,4 +1,6 @@
-﻿using TravelLand.Entities.Models;
+﻿using Newtonsoft.Json;
+using System.Text;
+using TravelLand.Entities.Models;
 
 namespace TravelLand.Services; 
 
@@ -25,5 +27,14 @@ public class UserService : HttpServiceBase
         if (!result.IsSuccessStatusCode || string.IsNullOrEmpty(result.Content.ToString()))
             return null;
         return await DeserializeFromStream<UserModel>(result.Content);
+    }
+    
+    public async Task<bool> Update(UserModel model)
+    {
+        if (model == null)
+            return false;
+        var result = await _client.PostAsync(Url("Update"),
+            new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json"));
+        return result.IsSuccessStatusCode;
     }
 }

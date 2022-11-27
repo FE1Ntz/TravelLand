@@ -61,11 +61,19 @@
     <Folder Include="Tables" />
     <Folder Include="Stored Procedures" />
     <Folder Include="Stored Procedures\Users" />
+    <Folder Include="Stored Procedures\Tours" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Users.sql" />
     <Build Include="Stored Procedures\Users\sp_Users_Create.sql" />
     <Build Include="Stored Procedures\Users\sp_Users_GetAll.sql" />
     <Build Include="Stored Procedures\Users\sp_UsersGetByUsername.sql" />
+    <Build Include="Stored Procedures\Users\sp_Users_Update.sql" />
+    <Build Include="Stored Procedures\Tours\sp_Tours_GetAll.sql" />
+    <Build Include="Tables\Tours.sql" />
+    <Build Include="Stored Procedures\Tours\sp_Tours_Create.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="TravelLand.Database.refactorlog" />
   </ItemGroup>
 </Project>

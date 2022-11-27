@@ -1,4 +1,13 @@
 ﻿@page "/AdminPanel/Edit"
 
-<div>@_user.Username</div>
+<EditForm Model="User">
+        <DataAnnotationsValidator/>
+        <div>Username: @_user.Username</div>
+        <div>First name: @_user.FirstName</div>
+        <InputText type="text" @bind-Value="_user.FirstName"/>
+        <div>Last name: @_user.LastName</div>
+        <InputText type="text" @bind-Value="_user.LastName"/>
+        <button class="edit-button success-button" @onclick="Save">Save</button>
+</EditForm>
+
 

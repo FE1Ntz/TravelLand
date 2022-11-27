@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravelLand.Business.User;
+using TravelLand.Entities.Models;
 
 namespace TravelLand.API.Controllers;
 
@@ -35,6 +36,20 @@ namespace TravelLand.API.Controllers;
             try
             {
                 var result = await _userManager.GetByUsername(username);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
+        
+        [HttpPost("Update")]
+        public async Task<IActionResult> Update(UserModel user)
+        {
+            try
+            {
+                var result = await _userManager.Update(user);
                 return Ok(result);
             }
             catch (Exception ex)

@@ -6,7 +6,7 @@ using TravelLand.Components;
 using TravelLand.Entities.Models;
 using TravelLand.Services;
 
-namespace TravelLand.Pages; 
+namespace TravelLand.Pages.Admin; 
 
 public partial class AdminPanel 
 {
@@ -18,7 +18,7 @@ public partial class AdminPanel
     [Inject] private NavigationManager _navManager { get; set; }
     
     private IEnumerable<UserModel> _users;
-    protected IEnumerable<UserModel> Users
+    private IEnumerable<UserModel> Users
     {
         get => _users;
         set
@@ -36,7 +36,7 @@ public partial class AdminPanel
         Users = await _userService.GetAll();
     }
 
-    protected async Task Logout()
+    private async Task Logout()
     {
         await _localStorageService.RemoveItemAsync("token");
         await _authStateProvider.GetAuthenticationStateAsync();
@@ -53,6 +53,11 @@ public partial class AdminPanel
     {
         var parameters = new ModalParameters().Add("User", Users.Single(u => u.Id == id));
         _modalService.Show<EditUserComponent>("Client full info", parameters);
+    }
+
+    private void Tours()
+    {
+        _navManager.NavigateTo("AdminPanel/Tours");
     }
     
     private void Back()

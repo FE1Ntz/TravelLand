@@ -1,0 +1,22 @@
+﻿<h3>EditTourComponent</h3>
+
+<EditForm Model="Tour">
+    <DataAnnotationsValidator/>
+    <div>Tour Name:</div>
+    <InputText type="text" @bind-Value="_tour.Name"/>
+    <div>Price:</div>
+    <InputNumber type="number" step="1" min="0" @bind-Value="_tour.Price"/>
+    <div>Country:</div>
+    <InputText type="text" @bind-Value="_tour.Country"/>
+    <div>Town:</div>
+    <InputText type="text" @bind-Value="_tour.Town"/>
+    <div>Person count:</div>
+    <InputNumber type="number" step="1" min="0" @bind-Value="_tour.PersonCount"/>
+    <div>Start day:</div>
+    <InputDate @bind-Value="_tour.StartDate"/>
+    <div>End day:</div>
+    <InputDate  @bind-Value="_tour.EndDate"/>
+    <div>Description:</div>
+    <InputText type="text" @bind-Value="_tour.Description"/>
+    <button class="edit-button success-button" @onclick="Save">Save</button>
+</EditForm>

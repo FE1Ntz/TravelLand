@@ -4,7 +4,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using TravelLand.API.Authorization;
+using TravelLand.Business.Tour;
 using TravelLand.Business.User;
+using TravelLand.Entities.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton<IUserManager, UserManager>();
+builder.Services.AddSingleton<ITourManager, TourManager>();
 builder.Services.AddTransient<JwtTokenManager>();
 builder.Services.AddSwaggerGen(options =>
 {

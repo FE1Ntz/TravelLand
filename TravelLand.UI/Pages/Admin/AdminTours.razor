@@ -1,0 +1,82 @@
+﻿@page "/AdminPanel/Tours"
+@attribute [Authorize(Roles = "Admin")]
+
+<div style="display: flex;">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            TravelLand
+        </div>
+        <div>
+            <nav style="display: flex; flex-direction: column;">
+                <div style="margin: 20px; background-color: #323232; border-radius: 16px; height: 50px; display: flex; justify-content: center; align-items: center">
+                    <div>
+                        Клієнти
+                    </div>
+                </div>
+                <div style="margin: 20px; background-color: #323232; border-radius: 16px; height: 50px; display: flex; justify-content: center; align-items: center">
+                    <div>
+                        Тури
+                    </div>
+                </div>
+                <div style="margin: 20px; background-color: #323232; border-radius: 16px; height: 50px; display: flex; justify-content: center; align-items: center">
+                    <div>
+                        Вийти
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div style="width: 100%; margin: 50px;">
+        
+        @if (Tours == null)
+        {
+            <p>
+                <em>Loading...</em>
+            </p>
+        }
+        else
+        {
+            <div style="display: flex; justify-content: flex-end;">
+                 <button @onclick="AddTour">Add</button>
+            </div>
+            <table id="customers">
+                <thead>
+                <tr>
+                    <th>Tour name</th>
+                    <th>Price</th>
+                    <th>Country</th>
+                    <th>Town</th>
+                    <th>Person count</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Duration</th>
+                    <th>Description</th>
+                    <th>Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var tour in Tours)
+                {
+                    <tr>
+                        <td>@tour.Name</td>
+                        <td>@tour.Price</td>
+                        <td>@tour.Country</td>
+                        <td>@tour.Town</td>
+                        <td>@tour.PersonCount</td>
+                        <td>@tour.StartDate.ToString("yyyy-MM-dd")</td>
+                        <td>@tour.EndDate.ToString("yyyy-MM-dd")</td>
+                        <td>@tour.Duration days</td>
+                        <td style="overflow-x: hidden;">@tour.Description</td>
+                        <td>
+                            <button @onclick="@(() => Edit(@tour.Id))">Edit</button>
+                            <button @onclick="@(() => Delete(@tour.Id))">Info</button>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
