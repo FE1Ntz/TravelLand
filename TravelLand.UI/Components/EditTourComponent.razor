@@ -19,4 +19,5 @@
     <div>Description:</div>
     <InputText type="text" @bind-Value="_tour.Description"/>
     <button class="edit-button success-button" @onclick="Save">Save</button>
+    <InputFile OnChange="@LoadImage" accept="image/jpeg,image/png,image/jpg"/>
 </EditForm>

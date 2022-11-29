@@ -12,5 +12,5 @@ public class TourModel
     public DateTime EndDate { get; set; } = DateTime.Today.AddDays(7);
     public int Duration => (EndDate - StartDate).Days;
     public string Description { get; set; }
-    
+    public string Logo { get; set; } = string.Empty;
 }

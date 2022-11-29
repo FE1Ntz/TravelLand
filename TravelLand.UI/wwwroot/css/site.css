@@ -349,6 +349,58 @@ html, body {
     width: 30px;
 }
 
+.tour-item{
+    padding: 10px;
+}
+
+.tour-card{
+    width: 285px;
+    height: 470px;
+    background-color: #FFFFFF;
+}
+
+.tour-image-container{
+    width: 100%;
+    background-color: #323232;
+    height: 190px;
+}
+
+.tour-image{
+    width: 100%;
+    height: 100%;
+}
+
+.tour-short-info{
+    color: #323232;
+    padding: 12px;
+}
+
+.tour-short-info-header-text{
+    width: 100%;
+    height: 110px;
+}
+
+.tour-duration{
+    margin-top: 80px;
+}
+
+.tour-price{
+    font-size: 24px;
+    line-height: 1.08;
+}
+
+.tour-details-button-container{
+    
+}
+
+.tour-details-button{
+    width: 100%;
+    height: 36px;
+    background-color: #e5900d;
+    color: #FFFFFF;
+    border: none;
+}
+
 
 
 

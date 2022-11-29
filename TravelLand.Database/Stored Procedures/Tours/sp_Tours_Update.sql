@@ -8,7 +8,8 @@
     @StartDate DATE,
     @EndDate Date,
     @Duration INT,
-    @Description NVARCHAR(MAX)
+    @Description NVARCHAR(MAX),
+    @Logo NVARCHAR(MAX)
 AS 
      UPDATE [Tours] SET
           [Name] = @Name,
@@ -19,5 +20,6 @@ AS
           [StartDate] = @StartDate,
           [EndDate] = @EndDate,
           [Duration] = @Duration,
-          [Description] = @Description
+          [Description] = @Description,
+          [Logo] = @Logo
      WHERE [Id] = @Id

@@ -1,6 +1,4 @@
 ﻿CREATE PROCEDURE [dbo].[sp_Tours_Delete]
-	@param1 int = 0,
-	@param2 int
+   @Id UNIQUEIDENTIFIER
 AS
-	SELECT @param1, @param2
-RETURN 0
+    DELETE FROM [Tours] WHERE [Id] = @Id

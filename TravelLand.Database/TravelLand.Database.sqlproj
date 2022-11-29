@@ -72,6 +72,9 @@
     <Build Include="Stored Procedures\Tours\sp_Tours_GetAll.sql" />
     <Build Include="Tables\Tours.sql" />
     <Build Include="Stored Procedures\Tours\sp_Tours_Create.sql" />
+    <Build Include="Stored Procedures\Tours\sp_Tours_Update.sql" />
+    <Build Include="Stored Procedures\Tours\sp_Tours_GetById.sql" />
+    <Build Include="Stored Procedures\Tours\sp_Tours_Delete.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="TravelLand.Database.refactorlog" />

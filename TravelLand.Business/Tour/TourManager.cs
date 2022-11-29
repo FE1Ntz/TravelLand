@@ -21,12 +21,12 @@ public class TourManager : ITourManager
 
     public Task<TourModel> GetById(Guid id)
     {
-        throw new NotImplementedException();
+        return _dataController.GetById(id);
     }
 
-    public Task<bool> Update(TourModel model)
+    public async Task<bool> Update(TourModel model)
     {
-        throw new NotImplementedException();
+        return await _dataController.Update(model);
     }
 
     public async Task<bool> Create(TourModel model)
@@ -39,6 +39,6 @@ public class TourManager : ITourManager
 
     public Task<bool> Delete(Guid id)
     {
-        throw new NotImplementedException();
+        return _dataController.Delete(id);
     }
 }

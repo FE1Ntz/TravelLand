@@ -8,7 +8,7 @@
         </div>
         <div>
             <nav style="display: flex; flex-direction: column;">
-                <div style="margin: 20px; background-color: #323232; border-radius: 16px; height: 50px; display: flex; justify-content: center; align-items: center">
+                <div @onclick="AdminPanel" style="margin: 20px; background-color: #323232; border-radius: 16px; height: 50px; display: flex; justify-content: center; align-items: center">
                     <div>
                         Клієнти
                     </div>
@@ -18,7 +18,7 @@
                         Тури
                     </div>
                 </div>
-                <div style="margin: 20px; background-color: #323232; border-radius: 16px; height: 50px; display: flex; justify-content: center; align-items: center">
+                <div @onclick="Logout" style="margin: 20px; background-color: #323232; border-radius: 16px; height: 50px; display: flex; justify-content: center; align-items: center">
                     <div>
                         Вийти
                     </div>
@@ -70,7 +70,7 @@
                         <td style="overflow-x: hidden;">@tour.Description</td>
                         <td>
                             <button @onclick="@(() => Edit(@tour.Id))">Edit</button>
-                            <button @onclick="@(() => Delete(@tour.Id))">Info</button>
+                            <button @onclick="@(() => Delete(@tour.Id))">Delete</button>
                         </td>
                     </tr>
                 }

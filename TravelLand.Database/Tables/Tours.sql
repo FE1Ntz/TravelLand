@@ -9,5 +9,6 @@
     [StartDate] DATE NOT NULL, 
     [EndDate] DATE NOT NULL, 
     [Duration] INT NOT NULL, 
-    [Description] NVARCHAR(MAX) NOT NULL
+    [Description] NVARCHAR(MAX) NOT NULL, 
+    [Logo] NVARCHAR(MAX) NULL
 )
