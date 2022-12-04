@@ -4,9 +4,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using TravelLand.API.Authorization;
+using TravelLand.Business.Order;
 using TravelLand.Business.Tour;
 using TravelLand.Business.User;
-using TravelLand.Entities.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton<IUserManager, UserManager>();
 builder.Services.AddSingleton<ITourManager, TourManager>();
+builder.Services.AddSingleton<IOrderManager, OrderManager>();
 builder.Services.AddTransient<JwtTokenManager>();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -41,10 +42,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuer = false,
             ValidateAudience = false
         };
-});
+    });
 
 
-builder.Services.AddTransient<JwtTokenManager>(); 
+builder.Services.AddTransient<JwtTokenManager>();
 
 var app = builder.Build();
 

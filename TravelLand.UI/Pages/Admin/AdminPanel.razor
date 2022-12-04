@@ -42,18 +42,23 @@
                 <th>Username</th>
                 <th>First name</th>
                 <th>Last name</th>
-                <th>Role</th>
+                <th>Email address</th>
+                <th>Phone number</th>
                 <th>Options</th>
             </tr>
             </thead>
             <tbody>
             @foreach (var user in Users)
             {
+                if (user.Role == "Admin")
+                    continue;
+                
                 <tr>
                     <td>@user.Username</td>
                     <td>@user.FirstName</td>
                     <td>@user.LastName</td>
-                    <td>@user.Role</td>
+                    <td>@user.EmailAddress</td>
+                    <td>@user.PhoneNumber</td>
                     <td>
                         <button @onclick="@(() => Edit(@user.Id))">Edit</button>
                         <button @onclick="@(() => Info(@user.Id))">Info</button>

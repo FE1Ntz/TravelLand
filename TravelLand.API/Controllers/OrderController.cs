@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TravelLand.Business.Tour;
+using TravelLand.Business.Order;
 using TravelLand.Entities.Models;
 
 namespace TravelLand.API.Controllers;
 
 [Route("[controller]")]
 [ApiController]
-public class TourController : Controller
+public class OrderController : ControllerBase
 {
-    private readonly ITourManager _tourManager;
+    private readonly IOrderManager _orderManager;
 
-    public TourController(ITourManager tourManager)
+    public OrderController(IOrderManager orderManager)
     {
-        _tourManager = tourManager;
+        _orderManager = orderManager;
     }
 
     [HttpGet("GetAll")]
@@ -20,7 +20,7 @@ public class TourController : Controller
     {
         try
         {
-            var result = await _tourManager.GetAll();
+            var result = await _orderManager.GetAll();
             return Ok(result);
         }
         catch (Exception ex)
@@ -34,7 +34,7 @@ public class TourController : Controller
     {
         try
         {
-            var result = await _tourManager.GetById(id);
+            var result = await _orderManager.GetById(id);
             return Ok(result);
         }
         catch (Exception ex)
@@ -44,11 +44,11 @@ public class TourController : Controller
     }
 
     [HttpPost("Create")]
-    public async Task<IActionResult> Create([FromBody] TourModel model)
+    public async Task<IActionResult> Create([FromBody] OrderModel model)
     {
         try
         {
-            var result = await _tourManager.Create(model);
+            var result = await _orderManager.Create(model);
             return result ? NoContent() : BadRequest();
         }
         catch (Exception ex)
@@ -58,11 +58,11 @@ public class TourController : Controller
     }
 
     [HttpPost("Update")]
-    public async Task<IActionResult> Update([FromBody] TourModel model)
+    public async Task<IActionResult> Update([FromBody] OrderModel model)
     {
         try
         {
-            var result = await _tourManager.Update(model);
+            var result = await _orderManager.Update(model);
             return result ? NoContent() : BadRequest();
         }
         catch (Exception ex)
@@ -76,7 +76,7 @@ public class TourController : Controller
     {
         try
         {
-            var result = await _tourManager.Delete(id);
+            var result = await _orderManager.Delete(id);
             return Ok(result);
         }
         catch (Exception ex)

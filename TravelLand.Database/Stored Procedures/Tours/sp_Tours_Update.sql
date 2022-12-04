@@ -10,16 +10,8 @@
     @Duration INT,
     @Description NVARCHAR(MAX),
     @Logo NVARCHAR(MAX)
-AS 
-     UPDATE [Tours] SET
-          [Name] = @Name,
-          [Price] = @Price,
-          [Country] = @Country,
-          [Town] = @Town,
-          [PersonCount] = @PersonCount,
-          [StartDate] = @StartDate,
-          [EndDate] = @EndDate,
-          [Duration] = @Duration,
-          [Description] = @Description,
-          [Logo] = @Logo
-     WHERE [Id] = @Id
+AS
+UPDATE [Tours]
+SET
+    [Name] = @Name, [Price] = @Price, [Country] = @Country, [Town] = @Town, [PersonCount] = @PersonCount, [StartDate] = @StartDate, [EndDate] = @EndDate, [Duration] = @Duration, [Description] = @Description, [Logo] = @Logo
+WHERE [Id] = @Id

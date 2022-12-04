@@ -6,25 +6,35 @@
          <div class="registration-form">
             <div class="registration-field">
                 <div>Username</div>
-                <InputText @oninput="HandleInput" class="registration-input" type="text" @bind-Value="UserRegisterDto.Username"></InputText>
+                <InputText @oninput="HandleInput" class="registration-input" type="text" @bind-Value="UserRegisterDto.Username"/>
                 <ValidationMessage For="@(() => UserRegisterDto.Username)" /> @_errorMessage
             </div>
             <div class="registration-field">
                 <div>Password</div>
-                <InputText class="registration-input" type="text" @bind-Value="UserRegisterDto.Password"/>
+                <InputText class="registration-input" type="password" @bind-Value="UserRegisterDto.Password"/>
                 <ValidationMessage For="@(() => UserRegisterDto.Password)" />
             </div>
-            <div class="registration-field">
-                <div>First name</div>
-                <InputText class="registration-input" type="text" @bind-Value="UserRegisterDto.FirstName"/>
-                <ValidationMessage For="@(() => UserRegisterDto.FirstName)" />
-            </div>
-            <div class="registration-field">
-                <div>Last name</div>
-                <InputText class="registration-input" type="text" @bind-Value="UserRegisterDto.LastName"/>
-                <ValidationMessage For="@(() => UserRegisterDto.LastName)" />
-            </div>
-            <button class="registration-button" type="submit">Create account</button>
+             <div class="registration-field">
+                 <div>First name</div>
+                 <InputText class="registration-input" type="text" @bind-Value="UserRegisterDto.FirstName"/>
+                 <ValidationMessage For="@(() => UserRegisterDto.FirstName)" />
+             </div>
+             <div class="registration-field">
+                 <div>Last name</div>
+                 <InputText class="registration-input" type="text" @bind-Value="UserRegisterDto.LastName"/>
+                 <ValidationMessage For="@(() => UserRegisterDto.LastName)"/>
+             </div>
+             <div class="registration-field">
+                 <div>Email</div>
+                 <InputText class="registration-input" type="text" @bind-Value="UserRegisterDto.EmailAddress"/>
+                 <ValidationMessage For="@(() => UserRegisterDto.EmailAddress)" />
+             </div>
+             <div class="registration-field">
+                 <div>Phone number</div>
+                 <InputText class="registration-input" type="text" @bind-Value="UserRegisterDto.PhoneNumber"/>
+                 <ValidationMessage For="@(() => UserRegisterDto.PhoneNumber)" />
+             </div>
+             <button class="registration-button" type="submit">Create account</button>
         </div>
     </EditForm>
     <div class="registration-container-footer">

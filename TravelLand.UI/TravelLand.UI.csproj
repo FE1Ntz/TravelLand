@@ -8,21 +8,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
-      <PackageReference Include="Blazored.Modal" Version="7.1.0" />
-      <PackageReference Include="Blazored.Toast" Version="3.2.2" />
-      <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.0" />
-      <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta2" />
+        <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
+        <PackageReference Include="Blazored.Modal" Version="7.1.0" />
+        <PackageReference Include="Blazored.Toast" Version="3.2.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta2" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\TravelLand.Entities\TravelLand.Entities.csproj" />
+        <ProjectReference Include="..\TravelLand.Entities\TravelLand.Entities.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css.map" />
+        <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css" />
+        <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css.map" />
     </ItemGroup>
 
 </Project>

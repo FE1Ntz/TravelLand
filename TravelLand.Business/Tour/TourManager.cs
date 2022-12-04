@@ -2,18 +2,17 @@
 using TravelLand.DataAccess;
 using TravelLand.Entities.Models;
 
-namespace TravelLand.Business.Tour; 
+namespace TravelLand.Business.Tour;
 
 public class TourManager : ITourManager
 {
-
     private readonly TourDataController _dataController;
 
     public TourManager(IConfiguration configuration)
     {
         _dataController = new TourDataController(configuration);
     }
-    
+
     public Task<IEnumerable<TourModel>> GetAll()
     {
         return _dataController.GetAll();

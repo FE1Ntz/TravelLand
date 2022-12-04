@@ -1,8 +1,8 @@
 ﻿using TravelLand.Entities.Models;
 
-namespace TravelLand.Business.Tour; 
+namespace TravelLand.Business.Tour;
 
-public interface ITourManager 
+public interface ITourManager
 {
     Task<IEnumerable<TourModel>> GetAll();
     Task<TourModel> GetById(Guid id);

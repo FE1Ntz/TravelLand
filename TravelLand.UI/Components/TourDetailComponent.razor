@@ -1,16 +1,52 @@
-﻿<div class="tour-short-info">
-    <div class="tour-header-text">
-        @_tourModel.Name<br>
-        @_tourModel.Country, @_tourModel.Town
+﻿@attribute [Authorize]
+
+<div class="row">
+    <div style="width: 282px;">
+        <div class="detail-tour-info">
+            <div class="detail-tour-header-text">
+                Назва туру: @_tourModel.Name<br>
+                Країна: @_tourModel.Country<br>
+                Місто: @_tourModel.Town
+            </div>
+            <div class="detail-tour-duration">
+                Тривалість туру:
+                з @_tourModel.StartDate.ToString("dd-MM") по @_tourModel.EndDate.ToString("dd-MM") (@_tourModel.Duration днів)
+            </div>
+            <div class="detail-tour-price">
+                Ціна: @_tourModel.Price грн
+            </div>
+            <div class="detail-tour-person-count">
+                Кількість осіб: @_tourModel.PersonCount дорослих
+            </div>
+            <div class="detail-description">
+                Опис: @_tourModel.Description
+            </div>
+            <AuthorizeView Roles="Client">
+                <Authorized>
+                    @if (_navManager.Uri != "http://localhost:7091/Payment")
+                    {
+                        <div class="tour-order-container">
+                            <button @onclick="Payment" class="tour-order-button">Замовити тур</button>
+                        </div>
+                        <div class="tour-order-container">
+                            <button @onclick="WishList" class="tour-order-button">Замовити тур</button>
+                        </div>
+                    }
+                </Authorized>
+                <NotAuthorized>
+                    <a href="Login" class="link">Регістрація/Вхід</a>
+                </NotAuthorized>
+            </AuthorizeView>
+        </div>
     </div>
-    <div class="tour-duration">
-        з@_tourModel.StartDate.ToString("dd-MM") по @_tourModel.EndDate.ToString("dd-MM") (@_tourModel.Duration днів)
+    <div style="margin-left: 50px;">
+        @if (string.IsNullOrEmpty(_tourModel.Logo))
+        {
+            <img src="img/no-image.png" alt=""/>
+        }
+        else
+        {
+            <img style="width: 285px; height: 190px;" src="data:image/png;base64,@_tourModel.Logo" alt="Tour image"/>
+        }
     </div>
-    <div class="tour-price">
-        @_tourModel.Price грн
-    </div>
-    <div class="tour-person-count">
-        Ціна за тур (@_tourModel.PersonCount дорослих) 
-    </div>
-    <div class="description">@_tourModel.Description</div>
 </div>

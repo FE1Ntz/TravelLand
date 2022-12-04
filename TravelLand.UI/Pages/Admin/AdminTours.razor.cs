@@ -36,7 +36,7 @@ public partial class AdminTours
     
     private async Task AddTour()
     {
-        var result = _modalService.Show<EditTourComponent>("Edit client");
+        var result = _modalService.Show<EditTourComponent>("Create tour");
         var modalResult = await result.Result;
         if (!modalResult.Cancelled)
         {
@@ -47,7 +47,7 @@ public partial class AdminTours
     private async Task Edit(Guid id)
     {
         var parameter = new ModalParameters().Add("Tour", Tours.Single(u => u.Id == id));
-        var result = _modalService.Show<EditTourComponent>("Edit client", parameter);
+        var result = _modalService.Show<EditTourComponent>("Edit Tour", parameter);
         var modalResult = await result.Result;
         if (!modalResult.Cancelled)
         { 

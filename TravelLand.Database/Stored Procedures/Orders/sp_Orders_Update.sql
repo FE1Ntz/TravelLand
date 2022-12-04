@@ -5,11 +5,8 @@
     @IsPaid BIT,
     @PaymentDate DATETIME
    
-AS 
-     UPDATE [Orders] SET
-          [Id] = @Id,
-          [TourId] = @TourId,
-          [Username] = @Username,
-          [IsPaid] = @IsPaid,
-          [PaymentDate] = @PaymentDate
-     WHERE [Id] = @Id
+AS
+UPDATE [Orders]
+SET
+    [Id] = @Id, [TourId] = @TourId, [Username] = @Username, [IsPaid] = @IsPaid, [PaymentDate] = @PaymentDate
+WHERE [Id] = @Id

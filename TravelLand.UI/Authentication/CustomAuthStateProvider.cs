@@ -7,8 +7,8 @@ namespace TravelLand;
 
 public class CustomAuthStateProvider : AuthenticationStateProvider
 {
-    private readonly ILocalStorageService _localStorage;
     private readonly HttpClient _http;
+    private readonly ILocalStorageService _localStorage;
 
     public CustomAuthStateProvider(ILocalStorageService localStorage, HttpClient http)
     {
@@ -56,9 +56,14 @@ public class CustomAuthStateProvider : AuthenticationStateProvider
     {
         switch (base64.Length % 4)
         {
-            case 2: base64 += "=="; break;
-            case 3: base64 += "="; break;
+            case 2:
+                base64 += "==";
+                break;
+            case 3:
+                base64 += "=";
+                break;
         }
+
         return Convert.FromBase64String(base64);
     }
 }

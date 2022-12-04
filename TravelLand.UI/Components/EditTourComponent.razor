@@ -1,23 +1,21 @@
-﻿<h3>EditTourComponent</h3>
-
-<EditForm Model="Tour">
+﻿<EditForm Model="Tour">
     <DataAnnotationsValidator/>
     <div>Tour Name:</div>
-    <InputText type="text" @bind-Value="_tour.Name"/>
+    <InputText class="edit-input-tour" type="text" @bind-Value="_tour.Name"/>
     <div>Price:</div>
-    <InputNumber type="number" step="1" min="0" @bind-Value="_tour.Price"/>
+    <InputNumber class="edit-input-tour" type="number" step="1" min="0" @bind-Value="_tour.Price"/>
     <div>Country:</div>
-    <InputText type="text" @bind-Value="_tour.Country"/>
+    <InputText class="edit-input-tour" type="text" @bind-Value="_tour.Country"/>
     <div>Town:</div>
-    <InputText type="text" @bind-Value="_tour.Town"/>
+    <InputText class="edit-input-tour" type="text" @bind-Value="_tour.Town"/>
     <div>Person count:</div>
-    <InputNumber type="number" step="1" min="0" @bind-Value="_tour.PersonCount"/>
+    <InputNumber class="edit-input-tour" type="number" step="1" min="0" @bind-Value="_tour.PersonCount"/>
     <div>Start day:</div>
-    <InputDate @bind-Value="_tour.StartDate"/>
+    <InputDate class="edit-input-tour" @bind-Value="_tour.StartDate"/>
     <div>End day:</div>
-    <InputDate  @bind-Value="_tour.EndDate"/>
+    <InputDate class="edit-input-tour" @bind-Value="_tour.EndDate"/>
     <div>Description:</div>
-    <InputText type="text" @bind-Value="_tour.Description"/>
+    <InputTextArea class="input-area" type="text" @bind-Value="_tour.Description"/>
     <button class="edit-button success-button" @onclick="Save">Save</button>
     <InputFile OnChange="@LoadImage" accept="image/jpeg,image/png,image/jpg"/>
 </EditForm>

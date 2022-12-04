@@ -12,7 +12,7 @@
             </div>
             <div class="login-field">
                 <div>Password</div>
-                <InputText @oninput="(args) => HandleInput(args, InputValueEnum.Password)" class="login-input" type="text" @bind-Value="UserLoginDto.Password"/>
+                <InputText @oninput="(args) => HandleInput(args, InputValueEnum.Password)" class="login-input" type="password" @bind-Value="UserLoginDto.Password"/>
                 <ValidationMessage For="@(() => UserLoginDto.Password)" />@_passwordError
             </div>
             <button class="login-button" type="submit">Log in</button>

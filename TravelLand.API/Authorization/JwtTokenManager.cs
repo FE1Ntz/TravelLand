@@ -1,5 +1,6 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using TravelLand.Business.User;
 using TravelLand.Entities.Models;
@@ -26,22 +27,22 @@ public class JwtTokenManager
         switch (user.Role)
         {
             case "Admin":
-                claims = new List<Claim>()
+                claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, model.Username),
-                    new Claim(ClaimTypes.Role, "Admin")
+                    new(ClaimTypes.Name, model.Username),
+                    new(ClaimTypes.Role, "Admin")
                 };
                 break;
             case "Client":
                 claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, model.Username),
-                    new Claim(ClaimTypes.Role, "Client")
+                    new(ClaimTypes.Name, model.Username),
+                    new(ClaimTypes.Role, "Client")
                 };
                 break;
         }
 
-        var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
             _configuration.GetSection("AppSettings:Token").Value));
 
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);

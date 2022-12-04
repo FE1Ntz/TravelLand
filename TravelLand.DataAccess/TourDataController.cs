@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using TravelLand.Entities.Models;
 
-namespace TravelLand.DataAccess; 
+namespace TravelLand.DataAccess;
 
 public class TourDataController : DataController
 {
     public TourDataController(IConfiguration configuration) : base(configuration, "Tours")
     {
     }
-    
+
     public Task<IEnumerable<TourModel>> GetAll()
     {
         return GetManyAsync<TourModel>("GetAll");

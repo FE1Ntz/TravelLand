@@ -7,17 +7,17 @@ namespace TravelLand.DataAccess;
 
 public abstract class DataController
 {
-    private IConfiguration _configuration;
+    private readonly IConfiguration _configuration;
 
-    private string _tableName;
-
-    protected string ConnectionString => _configuration.GetConnectionString("DefaultConnection");
+    private readonly string _tableName;
 
     protected DataController(IConfiguration configuration, string tableName)
     {
         _configuration = configuration;
         _tableName = tableName;
     }
+
+    protected string ConnectionString => _configuration.GetConnectionString("DefaultConnection");
 
     protected SqlConnection GetConnection()
     {

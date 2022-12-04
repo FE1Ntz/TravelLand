@@ -3,10 +3,16 @@
 <EditForm Model="User">
         <DataAnnotationsValidator/>
         <div>Username: @_user.Username</div>
-        <div>First name: @_user.FirstName</div>
+        <div>First name:</div>
         <InputText type="text" @bind-Value="_user.FirstName"/>
-        <div>Last name: @_user.LastName</div>
+        <div>Last name:</div>
         <InputText type="text" @bind-Value="_user.LastName"/>
+        <div>Email: </div>
+        <InputText type="text" @bind-Value="_user.EmailAddress"/>
+        <ValidationMessage For="@(() => User.EmailAddress)" />
+        <div>Phone number: </div>
+        <InputText type="text" @bind-Value="_user.PhoneNumber"/>
+        <ValidationMessage For="@(() => User.PhoneNumber)" />
         <button class="edit-button success-button" @onclick="Save">Save</button>
 </EditForm>
 
