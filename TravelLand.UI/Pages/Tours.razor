@@ -42,7 +42,7 @@
                                 Ціна за тур (@tour.PersonCount дорослих) 
                             </div>
                             <div class="tour-details-button-container">
-                                <button class="tour-details-button">Детальніше</button>
+                                <button @onclick="@(() => Details(@tour.Id))" class="tour-details-button">Детальніше</button>
                             </div>
                         </div>
                     </div>

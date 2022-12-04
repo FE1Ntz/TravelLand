@@ -1,0 +1,16 @@
+﻿<div class="tour-short-info">
+    <div class="tour-header-text">
+        @_tourModel.Name<br>
+        @_tourModel.Country, @_tourModel.Town
+    </div>
+    <div class="tour-duration">
+        з@_tourModel.StartDate.ToString("dd-MM") по @_tourModel.EndDate.ToString("dd-MM") (@_tourModel.Duration днів)
+    </div>
+    <div class="tour-price">
+        @_tourModel.Price грн
+    </div>
+    <div class="tour-person-count">
+        Ціна за тур (@_tourModel.PersonCount дорослих) 
+    </div>
+    <div class="description">@_tourModel.Description</div>
+</div>

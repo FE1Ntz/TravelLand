@@ -7,7 +7,8 @@ namespace TravelLand.API.Controllers;
 [Route("[controller]")]
 [ApiController]
 
-public class TourController : Controller {
+public class TourController : Controller 
+{
     private readonly ITourManager _tourManager;
 
     public TourController(ITourManager tourManager)
