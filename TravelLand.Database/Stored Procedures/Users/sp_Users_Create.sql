@@ -5,7 +5,9 @@
     @LastName NVARCHAR(MAX),
     @Role NVARCHAR(MAX),
 	@PasswordHash binary(64),
-	@PasswordSalt binary(128)
+	@PasswordSalt binary(128),
+    @PhoneNumber NVARCHAR(MAX),
+    @EmailAddress NVARCHAR(MAX)
 AS 
     INSERT INTO [Users] 
         ([Id],
@@ -13,8 +15,10 @@ AS
         [LastName], 
 		[Username],
         [Role],
-		[PasswordHash] ,
-		[PasswordSalt]) 
+		[PasswordHash],
+		[PasswordSalt],
+        [PhoneNumber],
+        [EmailAddress]) 
     VALUES
         (@Id,
         @FirstName,
@@ -22,4 +26,6 @@ AS
 		@Username,
         @Role,
 		@PasswordHash, 
-		@PasswordSalt)
+		@PasswordSalt,
+        @PhoneNumber,
+        @EmailAddress)
