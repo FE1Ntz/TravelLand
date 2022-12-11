@@ -21,15 +21,24 @@
             <div class="detail-description">
                 Опис: @_tourModel.Description
             </div>
-            <AuthorizeView Roles="Client">
+            <AuthorizeView Roles = "Client">
                 <Authorized>
                     @if (_navManager.Uri != "http://localhost:7091/Payment")
                     {
-                        <div class="tour-order-container">
-                            <button @onclick="Payment" class="tour-order-button">Замовити тур</button>
-                        </div>
-                        <div class="tour-order-container">
-                            <button @onclick="WishList" class="tour-order-button">Замовити тур</button>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="tour-order-container">
+                                <button @onclick="Payment" class="tour-order-button">Замовити тур</button>
+                            </div>
+                            <div class="tour-order-container">
+                                @if (ifInWishList)
+                                {
+                                    <p style="color: #01ace3; margin: 0;">В списку бажаного</p>
+                                }
+                                else
+                                {
+                                    <button @onclick="WishList" class="tour-order-button">В список бажаного</button>
+                                }
+                            </div>
                         </div>
                     }
                 </Authorized>

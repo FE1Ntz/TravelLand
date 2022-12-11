@@ -46,10 +46,18 @@ public class OrderService : HttpServiceBase
             new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json"));
         return result.IsSuccessStatusCode;
     }
-    
-    public async Task<bool> Delete(Guid id)
+
+    public async Task<bool> Delete(Guid tourId, string username, bool isPaid)
     {
-        var result = await _client.GetAsync(Url($"Delete?id={id}"));
+        var result = await _client.GetAsync(Url($"Delete?tourId={tourId}&username={username}&isPaid={isPaid}"));
         return result.IsSuccessStatusCode;
+    }
+    
+    public async Task<IEnumerable<TourModel>> GetUserHistoryByUserUsername(string username, bool isPaid)
+    {
+        var result = await _client.GetAsync(Url($"GetUserHistoryByUserUsername?username={username}&isPaid={isPaid}"));
+        if (!result.IsSuccessStatusCode || string.IsNullOrEmpty(result.Content.ToString()))
+            return new List<TourModel>();
+        return await DeserializeFromStream<IEnumerable<TourModel>>(result.Content);
     }
 }

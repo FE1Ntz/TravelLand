@@ -1,0 +1,80 @@
+﻿<div class="client-info-popup">
+    <div class="row">
+        <div class="sidebar-client-info">
+            <button @onclick="History" class="tab-button">Історія</button>
+            <button @onclick="WishList" class="tab-button">Список бажаного</button>
+        </div>
+        <div class="client-info-container">
+            <div class="client-info-wishlist @(_isHistoryTab ? "d-flex" : "d-none")">
+                @foreach (var tour in _history)
+                {
+                    <div class="tour-item">
+                        <div class="tour-card">
+                            <div class="tour-image-container">
+                                @if (string.IsNullOrEmpty(@tour.Logo))
+                                {
+                                    <img class="tour-image" src="img/no-image.png" alt=""/>
+                                }
+                                else
+                                {
+                                    <img class="tour-image" src="data:image/png;base64,@tour.Logo" alt="Tour image"/>
+                                }
+                            </div>
+                            <div class="tour-short-info">
+                                <div class="tour-header-text">
+                                    @tour.Name<br>
+                                    @tour.Country, @tour.Town
+                                </div>
+                                <div class="tour-duration">
+                                    з @tour.StartDate.ToString("dd-MM") по @tour.EndDate.ToString("dd-MM") (@tour.Duration днів)
+                                </div>
+                                <hr>
+                                <div class="tour-price">
+                                    @tour.Price грн
+                                </div>
+                                <div class="tour-person-count">
+                                    Ціна за тур (@tour.PersonCount дорослих)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="client-info-wishlist @(_isWishListTab ? "d-flex" : "d-none")">
+                @foreach (var tour in _wishList)
+                {
+                    <div class="tour-item">
+                        <div class="tour-card">
+                            <div class="tour-image-container">
+                                @if (string.IsNullOrEmpty(@tour.Logo))
+                                {
+                                    <img class="tour-image" src="img/no-image.png" alt=""/>
+                                }
+                                else
+                                {
+                                    <img class="tour-image" src="data:image/png;base64,@tour.Logo" alt="Tour image"/>
+                                }
+                            </div>
+                            <div class="tour-short-info">
+                                <div class="tour-header-text">
+                                    @tour.Name<br>
+                                    @tour.Country, @tour.Town
+                                </div>
+                                <div class="tour-duration">
+                                    з @tour.StartDate.ToString("dd-MM") по @tour.EndDate.ToString("dd-MM") (@tour.Duration днів)
+                                </div>
+                                <hr>
+                                <div class="tour-price">
+                                    @tour.Price грн
+                                </div>
+                                <div class="tour-person-count">
+                                    Ціна за тур (@tour.PersonCount дорослих)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

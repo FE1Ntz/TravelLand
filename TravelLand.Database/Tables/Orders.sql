@@ -1,17 +1,14 @@
 ﻿CREATE TABLE [dbo].[Orders]
 (
-    [
-    Id]
+    [Id]
     UNIQUEIDENTIFIER
     NOT
     NULL
     PRIMARY
-    KEY, [
-    TourId]
+    KEY, [TourId]
     UNIQUEIDENTIFIER
     NOT
-    NULL, [
-    Username]
+    NULL, [Username]
     NVARCHAR
 (
     MAX

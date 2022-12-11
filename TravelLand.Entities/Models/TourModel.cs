@@ -13,4 +13,5 @@ public class TourModel
     public int Duration => (EndDate - StartDate).Days;
     public string Description { get; set; }
     public string Logo { get; set; } = string.Empty;
+    public bool IsHot { get; set; }
 }

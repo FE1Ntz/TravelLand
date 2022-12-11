@@ -72,11 +72,25 @@ public class OrderController : ControllerBase
     }
 
     [HttpGet("Delete")]
-    public async Task<IActionResult> Delete(Guid id)
+    public async Task<IActionResult> Delete(Guid tourId, string username, bool isPaid)
     {
         try
         {
-            var result = await _orderManager.Delete(id);
+            var result = await _orderManager.Delete(tourId, username, isPaid);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500);
+        }
+    }
+    
+    [HttpGet("GetUserHistoryByUserUsername")]
+    public async Task<IActionResult> GetUserHistoryByUserUsername(string username, bool isPaid)
+    {
+        try
+        {
+            var result = await _orderManager.GetUserHistoryByUserUsername(username, isPaid);
             return Ok(result);
         }
         catch (Exception ex)

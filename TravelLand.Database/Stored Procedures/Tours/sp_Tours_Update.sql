@@ -9,9 +9,20 @@
     @EndDate Date,
     @Duration INT,
     @Description NVARCHAR(MAX),
-    @Logo NVARCHAR(MAX)
+    @Logo NVARCHAR(MAX),
+    @IsHot BIT
 AS
 UPDATE [Tours]
 SET
-    [Name] = @Name, [Price] = @Price, [Country] = @Country, [Town] = @Town, [PersonCount] = @PersonCount, [StartDate] = @StartDate, [EndDate] = @EndDate, [Duration] = @Duration, [Description] = @Description, [Logo] = @Logo
+    [Name] = @Name, 
+    [Price] = @Price, 
+    [Country] = @Country, 
+    [Town] = @Town, 
+    [PersonCount] = @PersonCount, 
+    [StartDate] = @StartDate, 
+    [EndDate] = @EndDate, 
+    [Duration] = @Duration, 
+    [Description] = @Description, 
+    [Logo] = @Logo, 
+    [IsHot] = @IsHot
 WHERE [Id] = @Id

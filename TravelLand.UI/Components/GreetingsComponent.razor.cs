@@ -10,8 +10,9 @@ public partial class GreetingsComponent
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(3000);
+        await Task.Delay(4000);
         await BlazoredModal.CloseAsync();
-        _navigationManager.NavigateTo("");
+        if(_navigationManager.ToBaseRelativePath(_navigationManager.Uri) == "Payment")
+            _navigationManager.NavigateTo("");
     }
 }

@@ -5,13 +5,13 @@
     <div class="row" style="height: 100%">
         <div style="display: flex; flex-direction: column; margin-top: 100px; align-items: center; width: 300px;">
             <div style="height: 40px; margin-bottom:20px; display: flex; justify-content: center;">
-                <button style="width: 200px; height: 40px; border-radius: 10px;">Профіль</button>
+                <button @onclick="Profile" style="width: 200px; height: 40px; border-radius: 10px;">Профіль</button>
             </div>
             <div style="height: 40px; margin-bottom:20px; display: flex; justify-content: center;">
-                <button style="width: 200px; height: 40px; border-radius: 10px;">Історія</button>
+                <button @onclick="History" style="width: 200px; height: 40px; border-radius: 10px;">Історія</button>
             </div>
             <div style="height: 40px; margin-bottom:20px; display: flex; justify-content: center;">
-                <button style="width: 200px; height: 40px; border-radius: 10px;">Заплановані поїздки</button>
+                <button @onclick="WishList" style="width: 200px; height: 40px; border-radius: 10px;">Список бажаного</button>
             </div>
             <div style="height: 40px; margin-bottom:20px; display: flex; justify-content: center;">
                 <button @onclick="Back" style="width: 200px; height: 40px; border-radius: 10px;">Назад</button>
@@ -19,16 +19,100 @@
         </div>
         <div style="width: 100%;">
             <div style="font-family: 'Fira Sans', serif; background-color: var(--main-color); height: 100%; border-radius: 40px; display: flex; align-items: center; justify-content: center; flex-direction: column">
-                <div style="margin-bottom: 20px; font-size: 30px;">
-                   Username: @_userModel.Username
+                <div style="margin-top: 200px; text-align: center; flex-direction: column;" class="@(_isProfileTab ? "" : "d-none")">
+                    <div style="margin-bottom: 20px; font-size: 30px;">
+                        Username: @_userModel.Username
+                    </div>
+                    <div style="margin-bottom: 20px; font-size: 30px;">
+                        First name: @_userModel.FirstName
+                    </div>
+                    <div style="margin-bottom: 20px; font-size: 30px;">
+                        Last name: @_userModel.LastName
+                    </div>
+                    <div style="margin-bottom: 20px; font-size: 30px;">
+                        Last name: @_userModel.EmailAddress
+                    </div>
+                    <div style="margin-bottom: 20px; font-size: 30px;">
+                        Last name: @_userModel.PhoneNumber
+                    </div>
+                    <button style="width: 200px; height: 40px; border-radius: 10px;" @onclick="Logout">Log Out</button>
                 </div>
-                <div style="margin-bottom: 20px; font-size: 30px;">
-                   First name: @_userModel.FirstName
+
+                <div class="client-info-container">
+                    <div class="client-info-wishlist @(_isHistoryTab ? "d-flex" : "d-none")">
+                        @foreach (var tour in _history)
+                        {
+                            <div class="tour-item">
+                                <div class="tour-card">
+                                    <div class="tour-image-container">
+                                        @if (string.IsNullOrEmpty(@tour.Logo))
+                                        {
+                                            <img class="tour-image" src="img/no-image.png" alt=""/>
+                                        }
+                                        else
+                                        {
+                                            <img class="tour-image" src="data:image/png;base64,@tour.Logo" alt="Tour image"/>
+                                        }
+                                    </div>
+                                    <div class="tour-short-info">
+                                        <div class="tour-header-text">
+                                            @tour.Name<br>
+                                            @tour.Country, @tour.Town
+                                        </div>
+                                        <div class="tour-duration">
+                                            з @tour.StartDate.ToString("dd-MM") по @tour.EndDate.ToString("dd-MM") (@tour.Duration днів)
+                                        </div>
+                                        <hr>
+                                        <div class="tour-price">
+                                            @tour.Price грн
+                                        </div>
+                                        <div class="tour-person-count">
+                                            Ціна за тур (@tour.PersonCount дорослих)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="client-info-wishlist @(_isWishListTab ? "d-flex" : "d-none")">
+                        @foreach (var tour in _wishList)
+                        {
+                            <div class="tour-item">
+                                <div class="tour-card">
+                                    <div class="tour-image-container">
+                                        @if (string.IsNullOrEmpty(@tour.Logo))
+                                        {
+                                            <img class="tour-image" src="img/no-image.png" alt=""/>
+                                        }
+                                        else
+                                        {
+                                            <img class="tour-image" src="data:image/png;base64,@tour.Logo" alt="Tour image"/>
+                                        }
+                                    </div>
+                                    <div class="tour-short-info">
+                                        <div class="tour-header-text">
+                                            @tour.Name<br>
+                                            @tour.Country, @tour.Town
+                                        </div>
+                                        <div class="tour-duration">
+                                            з @tour.StartDate.ToString("dd-MM") по @tour.EndDate.ToString("dd-MM") (@tour.Duration днів)
+                                        </div>
+                                        <hr>
+                                        <div class="tour-price">
+                                            @tour.Price грн
+                                        </div>
+                                        <div class="tour-person-count">
+                                            Ціна за тур (@tour.PersonCount дорослих)
+                                        </div>
+                                        <div class="tour-details-button-container">
+                                            <button @onclick="@(() => Delete(@tour.Id))" class="tour-details-button">Видалити</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
                 </div>
-                <div style="margin-bottom: 20px; font-size: 30px;">
-                   Last name:  @_userModel.LastName
-                </div>
-                <button style="width: 200px; height: 40px; border-radius: 10px;"  @onclick="Logout">Log Out</button>
             </div>
         </div>
     </div>

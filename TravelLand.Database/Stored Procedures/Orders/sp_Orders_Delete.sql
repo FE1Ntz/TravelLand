@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[sp_Orders_Delete]
-   @Id UNIQUEIDENTIFIER
+   @TourId UNIQUEIDENTIFIER,
+   @Username NVARCHAR(MAX),
+   @IsPaid BIT
 AS
 DELETE
 FROM [Orders]
-WHERE [Id] = @Id
+WHERE [TourId] = @TourId AND [Username] = @Username AND [IsPaid] =  @IsPaid 

@@ -419,6 +419,96 @@ html, body {
     height: 140px;
 }
 
+.tour-order-container{
+    width: 132px
+}
+
+.client-info-popup{
+    width: 1400px;
+    height: 600px;
+}
+
+.sidebar-client-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+    width: 250px;
+    background-color: #e5900d;
+}
+
+.client-info-container{
+    width: 1145px;
+    height: 600px;
+    display: flex;
+    overflow-x: scroll;
+}
+
+.tab-button{
+    margin: 20px;
+    width: 175px;
+    height: 30px;
+    background-color: #FFFFFF;
+}
+
+.d-none{
+    display: none;
+}
+
+.client-info-wishlist{
+    width: 1145px;
+    height: 580px;
+    overflow-x: scroll;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.hot-category{
+    display: flex;
+}
+
+.main-tour-container{
+    display: flex;
+}
+
+.tour-header-text{
+    overflow-x: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap
+}
+
+.hot-category-text{
+    font-family: "Fira Sans", serif;
+    font-size: 40px;
+}
+
+.all-tours-button{
+    margin-top: 10px;
+    height: 470px;
+    display: flex;
+    align-items: center;
+}
+
+.all-tours-button:hover{
+   background-color: #878787;
+}
+
+.payment-form-container {
+    width: 400px;
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--main-color);
+    border-radius: 16px;
+}
+
+
+
+
+
+
 
 
 

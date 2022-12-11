@@ -40,7 +40,7 @@
             <div style="display: flex; justify-content: flex-end;">
                  <button @onclick="AddTour">Add</button>
             </div>
-            <table id="customers">
+            <table style="table-layout: fixed;" id="customers">
                 <thead>
                 <tr>
                     <th>Tour name</th>
@@ -59,7 +59,9 @@
                 @foreach (var tour in Tours)
                 {
                     <tr>
-                        <td>@tour.Name</td>
+                        <td style="overflow-x: hidden; text-overflow: ellipsis; white-space: nowrap">
+                           @tour.Name
+                        </td>
                         <td>@tour.Price</td>
                         <td>@tour.Country</td>
                         <td>@tour.Town</td>
@@ -67,7 +69,9 @@
                         <td>@tour.StartDate.ToString("yyyy-MM-dd")</td>
                         <td>@tour.EndDate.ToString("yyyy-MM-dd")</td>
                         <td>@tour.Duration days</td>
-                        <td style="overflow-x: hidden;">@tour.Description</td>
+                        <td style="overflow-x: hidden; text-overflow: ellipsis; white-space: nowrap">
+                            @tour.Description
+                        </td>
                         <td>
                             <button @onclick="@(() => Edit(@tour.Id))">Edit</button>
                             <button @onclick="@(() => Delete(@tour.Id))">Delete</button>

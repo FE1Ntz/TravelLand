@@ -10,5 +10,6 @@
     [EndDate]     DATE             NOT NULL,
     [Duration]    INT              NOT NULL,
     [Description] NVARCHAR(MAX)    NOT NULL,
-    [Logo]        NVARCHAR(MAX)    NULL
+    [Logo]        NVARCHAR(MAX)    NOT NULL, 
+    [IsHot] BIT NOT NULL
 )

@@ -8,6 +8,11 @@ public class OrderModel
     public bool IsPaid { get; set; }
     public DateTime PaymentDate { get; set; } = DateTime.Now;
 
+    public OrderModel()
+    {
+        
+    }
+    
     public OrderModel(Guid tourId, string username, bool isPaid)
     {
         TourId = tourId;

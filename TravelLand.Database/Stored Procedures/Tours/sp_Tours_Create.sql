@@ -9,7 +9,8 @@
     @EndDate Date,
     @Duration INT,
     @Description NVARCHAR(MAX),
-    @Logo NVARCHAR(MAX)
+    @Logo NVARCHAR(MAX),
+    @IsHot BIT
 AS 
     INSERT INTO [Tours] 
         ([Id],
@@ -22,7 +23,8 @@ AS
         [EndDate],
         [Duration],
         [Description],
-        [Logo]) 
+        [Logo],
+        [IsHot]) 
     VALUES
         (@Id,
         @Name,
@@ -34,4 +36,5 @@ AS
         @EndDate,
         @Duration,
         @Description,
-        @Logo)
+        @Logo,
+        @IsHot)

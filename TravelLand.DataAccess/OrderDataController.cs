@@ -29,8 +29,13 @@ public class OrderDataController : DataController
         return PerformNonQuery("Create", model);
     }
 
-    public Task<bool> Delete(Guid id)
+    public Task<bool> Delete(Guid tourId, string username, bool isPaid)
     {
-        return PerformNonQuery("Delete", new { Id = id });
+        return PerformNonQuery("Delete", new {TourId = tourId, Username = username, IsPaid = isPaid});
+    }
+    
+    public Task<IEnumerable<TourModel>> GetUserHistoryByUserUsername(string username, bool isPaid)
+    {
+        return GetManyAsync<TourModel>("GetUserHistoryByUserUsername", new { Username = username, IsPaid = isPaid });
     }
 }

@@ -43,16 +43,16 @@ public partial class AdminPanel
         Back();
     }
 
-    private async Task Edit(Guid id)
+    private void Edit(Guid id)
     {
         var parameters = new ModalParameters().Add("User", Users.Single(u => u.Id == id));
-        _modalService.Show<EditUserComponent>("Edit client", parameters);
+        _modalService.Show<EditUserComponent>("Редагувати клієнта", parameters);
     }
     
-    private async Task Info(Guid id)
+    private void Info(Guid id)
     {
         var parameters = new ModalParameters().Add("User", Users.Single(u => u.Id == id));
-        _modalService.Show<EditUserComponent>("Client full info", parameters);
+        _modalService.Show<ClientInfoComponent>("Повна інформація про клієнта", parameters);
     }
 
     private void Tours()

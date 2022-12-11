@@ -34,8 +34,13 @@ public class OrderManager : IOrderManager
         return await _dataController.Create(model);
     }
 
-    public Task<bool> Delete(Guid id)
+    public Task<bool> Delete(Guid tourId, string username, bool isPaid)
     {
-        return _dataController.Delete(id);
+        return _dataController.Delete(tourId, username, isPaid);
+    }
+    
+    public Task<IEnumerable<TourModel>> GetUserHistoryByUserUsername(string username, bool isPaid)
+    {
+        return _dataController.GetUserHistoryByUserUsername(username, isPaid);
     }
 }

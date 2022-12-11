@@ -1,4 +1,96 @@
 ﻿@page "/"
-<PageTitle>TravelLand.UI</PageTitle>
+<PageTitle>TravelLand</PageTitle>
 
 <NavMenu></NavMenu>
+
+<div class="container">
+    <h1 class="hot-category-text">Гарячі тури</h1>
+    <div class="row">
+        <div class="hot-category">
+            @foreach (var tour in TourModels)
+            {
+                if (tour.IsHot)
+                {
+                    <div class="tour-item">
+                        <div class="tour-card">
+                            <div class="tour-image-container">
+                                @if (string.IsNullOrEmpty(@tour.Logo))
+                                {
+                                    <img class="tour-image" src="img/no-image.png" alt=""/>
+                                }
+                                else
+                                {
+                                    <img class="tour-image" src="data:image/png;base64,@tour.Logo" alt="Tour image"/>
+                                }
+                            </div>
+                            <div class="tour-short-info">
+                                <div class="tour-header-text">
+                                    @tour.Name<br>
+                                    @tour.Country, @tour.Town
+                                </div>
+                                <div class="tour-duration">
+                                    з @tour.StartDate.ToString("dd-MM") по @tour.EndDate.ToString("dd-MM") (@tour.Duration днів)
+                                </div>
+                                <hr>
+                                <div class="tour-price">
+                                    @tour.Price грн
+                                </div>
+                                <div class="tour-person-count">
+                                    Ціна за тур (@tour.PersonCount дорослих)
+                                </div>
+                                <div class="tour-details-button-container">
+                                    <button @onclick="@(() => Details(@tour.Id))" class="tour-details-button">Детальніше</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <h1 class="hot-category-text">Інші пропозиції</h1>
+    <div class="row">
+        <div class="main-tour-container">
+            @foreach (var tour in TourModels)
+            {
+                <div class="tour-item">
+                    <div class="tour-card">
+                        <div class="tour-image-container">
+                            @if (string.IsNullOrEmpty(@tour.Logo))
+                            {
+                                <img class="tour-image" src="img/no-image.png" alt=""/>
+                            }
+                            else
+                            {
+                                <img class="tour-image" src="data:image/png;base64,@tour.Logo" alt="Tour image"/>
+                            }
+                        </div>
+                        <div class="tour-short-info">
+                            <div class="tour-header-text">
+                                @tour.Name<br>
+                                @tour.Country, @tour.Town
+                            </div>
+                            <div class="tour-duration">
+                                з @tour.StartDate.ToString("dd-MM") по @tour.EndDate.ToString("dd-MM") (@tour.Duration днів)
+                            </div>
+                            <hr>
+                            <div class="tour-price">
+                                @tour.Price грн
+                            </div>
+                            <div class="tour-person-count">
+                                Ціна за тур (@tour.PersonCount дорослих)
+                            </div>
+                            <div class="tour-details-button-container">
+                                <button @onclick="@(() => Details(@tour.Id))" class="tour-details-button">Детальніше</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div @onclick="ToTours" class="all-tours-button">
+            Усі тури
+            <img style="width: 50px; padding-top: 5px;" src="img/right-arrow.png" alt="">
+        </div>
+    </div>
+</div>
