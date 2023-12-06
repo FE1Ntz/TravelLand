@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Orders/sp_Orders_Create.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Orders/sp_Orders_Delete.sql" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Orders/sp_Orders_GetAll.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Orders/sp_Orders_GetById.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Orders/sp_Orders_GetUserHistoryByUserUsername.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Orders/sp_Orders_Update.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Tours/sp_Tours_Create.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Tours/sp_Tours_Delete.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Tours/sp_Tours_GetAll.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Tours/sp_Tours_GetById.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Tours/sp_Tours_Update.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Users/sp_UsersGetByUsername.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Users/sp_Users_Create.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Users/sp_Users_GetAll.sql" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/TravelLand.Database/Stored Procedures/Users/sp_Users_Update.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/TravelLand.Database/Tables/Orders.sql" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/TravelLand.Database/Tables/Tours.sql" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/TravelLand.Database/Tables/Users.sql" dialect="TSQL" />
   </component>
